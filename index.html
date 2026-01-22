@@ -71,6 +71,16 @@
 
 <section id="projets">
     <h2>Projets</h2>
+    <section id="project-details" style="display:none;">
+    <button class="btn-back" onclick="closeProject()">← Retour</button>
+
+    <div class="details-content">
+        <img id="detail-img" src="" alt="">
+        <h3 id="detail-title"></h3>
+        <p id="detail-desc"></p>
+        <p><strong>Technologies :</strong> <span id="detail-tech"></span></p>
+    </div>
+</section>
 
     <div class="projects">
 
@@ -199,7 +209,8 @@ function openProject(title, desc, tech, img) {
 }
 
 function closeProject() {
-    document.getElementById("projectModal").style.display = "none";
+    document.getElementById("project-details").style.display = "none";
+    document.getElementById("projets").style.display = "block";
 }
 
 </script>

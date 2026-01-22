@@ -304,6 +304,20 @@ h2 {
     color: white;
 }
 
+.btn-back {
+    background: none;
+    border: none;
+    color: #1dd1a1;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.btn-back:hover {
+    text-decoration: underline;
+}
+
 /* ================= MODAL ================= */
 .modal {
     position: fixed;
@@ -319,7 +333,7 @@ h2 {
 }
 
 .modal-content {
-    background: green;
+    background: whitesmoke;
     max-width: 600px;
     width: 90%;
     padding: 30px;
