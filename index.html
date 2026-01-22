@@ -192,11 +192,25 @@ function toggleMenu() {
     document.querySelector('nav').classList.toggle('show');
 }
 function sendMessage() {
-    if (!name.value || !email.value || !message.value) {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    if (!name || !email || !message) {
         alert("Veuillez remplir tous les champs");
         return false;
     }
-    alert("Message envoyé avec succès");
+
+    const subject = encodeURIComponent("Nouveau message depuis le portfolio");
+    const body = encodeURIComponent(
+        "Nom : " + name + "\n" +
+        "Email : " + email + "\n\n" +
+        "Message :\n" + message
+    );
+
+    window.location.href =
+        "mailto:tall20aly@gmail.com?subject=" + subject + "&body=" + body;
+
     return false;
 }
 function openProject(title, desc, tech, img) {
