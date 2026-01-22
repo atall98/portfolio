@@ -1,0 +1,501 @@
+
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: whitesmoke;
+    color: green;
+}
+
+/* ================= HEADER ================= */
+header {
+    position: sticky;
+    top: 0;
+    background: green;
+    z-index: 1000;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header h1 {
+    color: #fff;
+    margin: 0;
+    text-align: left;
+}
+
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+    nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: green;
+        flex-direction: column;
+        width: 200px;
+        display: none;
+        padding: 15px;
+        border-radius: 0 0 5px 5px;
+    }
+
+    nav a {
+        margin-bottom: 10px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    nav.show {
+        display: flex;
+    }
+}
+
+/* ================= SECTIONS ================= */
+section {
+    width: 85%;
+    max-width: 1100px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 40px;
+    animation: fadeUp 0.8s ease;
+}
+
+h2 {
+    margin-bottom: 25px;
+    font-size: 26px;
+    border-left: 5px solid green;
+    padding-left: 15px;
+}
+
+/* ================= ACCUEIL ================= */
+#accueil {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+#accueil img {
+    width: 400px;
+    border-width: 50%;
+    border: 4px solid white;
+    justify-self: center;
+}
+
+.btn-projects {
+    position: relative;
+    overflow: hidden;
+
+    background: white;
+    color: green;
+    border: 2px solid green;
+    padding: 14px 30px;
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-projects::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: green;
+    transition: 0.4s;
+    z-index: -1;
+}
+
+.btn-projects:hover {
+    background: #1faa00;
+    color: white;
+}
+
+
+.btn-projects:hover::before {
+    left: 0;
+}
+
+/* ================= COMPETENCES ================= */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.skill {
+    margin-bottom: 15px;
+}
+
+.skill span {
+    font-weight: bold;
+}
+
+.bar {
+    background: #ccc;
+    height: 8px;
+    margin-top: 6px;
+}
+
+.bar div {
+    height: 8px;
+    background: #111;
+}
+
+/* ================= A PROPOS ================= */
+.about-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-container img {
+    width: 100%;
+    border-radius: 6px;
+    filter: grayscale(100%);
+    transition: 0.4s;
+}
+
+.about-container img:hover {
+    filter: grayscale(0%);
+}
+
+#apropos img {
+    width: 220px;
+    border-radius: 50%;
+    border: 4px solid green;
+    justify-self: center;
+}
+
+
+
+
+
+
+/* ================= BOUTON CV ================= */
+.btn-cv {
+    background: white;
+    color: green;
+    border: 2px solid green;
+    padding: 14px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-cv::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: green;
+    transition: 0.4s;
+    z-index: -1;
+}
+
+.btn-cv:hover {
+    background: #1faa00; 
+    color: white;
+}
+
+.btn-cv:hover::before {
+    left: 0;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+/* ================= PROJETS ================= */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    border: 1px solid #ddd;
+    transition: 0.3s;
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-card div {
+    padding: 20px;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* ================= BOUTON VOIR PLUS ================= */
+.btn-see {
+    margin-top: 15px;
+    padding: 10px 22px;
+    border: 2px solid green;
+    background: transparent;
+    color: green;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-see:hover {
+    background: green;
+    color: white;
+}
+
+/* ================= MODAL ================= */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: green;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: green;
+    max-width: 600px;
+    width: 90%;
+    padding: 30px;
+    position: relative;
+    animation: zoom 0.4s ease;
+}
+
+.modal-content img {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.modal-content h3 {
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    margin-bottom: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes zoom {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* ================= CONTACT ================= */
+
+
+    #contact {
+    background: green;
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.highlight {
+    color: #1dd1a1;
+}
+
+/* FORMULAIRE */
+form {
+    max-width: 700px;
+    margin: auto;
+}
+
+form .row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 14px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+textarea {
+    height: 180px;
+    margin: 20px 0;
+    resize: none;
+}
+
+button {
+    background: #1dd1a1;
+    color: #fff;
+    border: none;
+    padding: 14px 40px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #10ac84;
+}
+
+/* ================= FOOTER ================= */
+
+
+footer {
+    background: whitesmoke;
+    color: green;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .intro-text {
+        font-size: 24px;
+    }
+
+    form .row {
+        flex-direction: column;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-projects {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 32px;
+    border: 2px solid green;
+    color: green;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s ease;
+}
+
+.btn-projects::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: green;
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.btn-projects:hover {
+    color: green;
+}
+
+.btn-projects:hover::before {
+    left: 0;
+}
+

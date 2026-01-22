@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Portfolio | Aly Tall</title>
+
+<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Aly <span class="highlight">Tall</span></h1>
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#competences">Compétences</a>
+        <a href="#projets">Projets</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+</header>
+
+<section id="accueil">
+    <div>
+        <h2>Développeur Web</h2>
+        <p>
+            Développeur web passionné, orienté performance et expérience utilisateur.
+            Je conçois des applications modernes, propres et efficaces.
+        </p>
+
+        <a href="#projets" class="btn-projects">
+    Voir mes projets
+</a>
+
+    </div>
+    <img src="accueil.png" alt="Photo Aly Tall">
+</section>
+
+
+<section id="apropos">
+    <h2>À propos</h2>
+
+    <div class="about-container">
+        <img src="imgprofil.jpeg" alt="Photo Aly Tall">
+        
+
+        <div class="about-text">
+            <p>
+                Je suis <strong>Aly Tall</strong>, développeur web passionné par la création
+                d’interfaces modernes, performantes et orientées utilisateur.
+                J’ai une forte capacité d’adaptation et un esprit analytique
+                qui me permettent de résoudre efficacement les problèmes.
+            </p>
+
+            <p>
+                Mon objectif est de concevoir des applications web professionnelles
+                en utilisant des technologies modernes tout en respectant
+                les bonnes pratiques du développement.
+            </p><br>
+
+            <a href="#cv.pdf" class="btn-cv" download>
+                Télécharger mon CV
+            </a>
+        </div>
+        
+    </div>
+</section>
+
+
+
+
+<section id="projets">
+    <h2>Projets</h2>
+
+    <div class="projects">
+
+        <div class="project-card">
+            <img src="5-3.jpg" alt="">
+            <div class="project-content">
+                <h3>Portfolio Professionnel</h3>
+                <p>One-page moderne avec animations et UX optimisée.</p>
+
+                <button class="btn-see"
+                    onclick="openProject(
+                        'Portfolio Professionnel',
+                        'Portfolio one-page moderne avec animations CSS, navigation fluide, design responsive et optimisation UX.',
+                        'HTML, CSS, JavaScript',
+                        '5-3.jpg'
+                    )">
+                    Voir plus
+                </button>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="Stock.jpg" alt="">
+            <div class="project-content">
+                <h3>Application de gestion</h3>
+                <p>Gestion de stock et tableaux de bord.</p>
+
+                <button class="btn-see"
+                    onclick="openProject(
+                        'Application de gestion',
+                        'Application web de gestion de stock avec tableaux de bord, CRUD, statistiques et gestion des utilisateurs.',
+                        'HTML, CSS, JavaScript, PHP, Laravel',
+                        'Stock.jpg'
+                    )">
+                    Voir plus
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<section id="competences">
+    <h2>Compétences</h2>
+
+    <div class="skills-grid">
+        <div>
+            <h3>Hard Skills</h3>
+
+            <div class="skill">
+                <span>HTML / CSS</span>
+                <div class="bar"><div style="width:90%"></div></div>
+            </div>
+
+            <div class="skill">
+                <span>JavaScript</span>
+                <div class="bar"><div style="width:80%"></div></div>
+            </div>
+
+            <div class="skill">
+                <span>PHP / Laravel</span>
+                <div class="bar"><div style="width:75%"></div></div>
+            </div>
+        </div>
+
+        <div>
+            <h3>Soft Skills</h3>
+            <ul>
+                <li>Leadership</li>
+                <li>Communication efficace</li>
+                <li>Esprit d’analyse</li>
+                <li>Gestion du temps</li>
+                <li>Travail en équipe</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <p class="intro-text">
+        Vous avez un <span class="highlight">projet en tête ?</span><br>
+        N'hésitez pas à me <span class="highlight">contacter</span>
+    </p>
+
+    <form onsubmit="return sendMessage()">
+        <div class="row">
+            <input type="text" placeholder="Votre prénom">
+            <input type="text" placeholder="Votre nom">
+        </div>
+
+        <input type="text" placeholder="Votre sujet">
+        <textarea placeholder="Écrivez votre message ici"></textarea>
+
+        <button>Envoyer</button>
+    </form>
+</section>
+
+<footer>
+    <p>Designed by <span class="highlight">Aly Tall</span> with HTML CSS JS</p>
+    <p>Tous droits réservés - 2026</p>
+</footer>
+
+
+<script>
+
+function toggleMenu() {
+    document.querySelector('nav').classList.toggle('show');
+}
+function sendMessage() {
+    if (!name.value || !email.value || !message.value) {
+        alert("Veuillez remplir tous les champs");
+        return false;
+    }
+    alert("Message envoyé avec succès");
+    return false;
+}
+function openProject(title, desc, tech, img) {
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalDesc").innerText = desc;
+    document.getElementById("modalTech").innerText = tech;
+    document.getElementById("modalImg").src = img;
+
+    document.getElementById("projectModal").style.display = "flex";
+}
+
+function closeProject() {
+    document.getElementById("projectModal").style.display = "none";
+}
+
+</script>
+
+<div class="modal" id="projectModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeProject()">&times;</span>
+
+        <img id="modalImg" src="" alt="">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDesc"></p>
+        <p><strong>Technologies :</strong> <span id="modalTech"></span></p>
+    </div>
+</div>
+
+
+</body>
+</html>
