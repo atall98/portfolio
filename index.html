@@ -189,12 +189,20 @@
 <script>
 
 function toggleMenu() {
-    document.querySelector('nav').classList.toggle('show');
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('show');
 }
+
+
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('nav').classList.remove('show');
+    });
+});
 function sendMessage() {
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+    const name = document.querySelector('input[placeholder="Votre prénom"]').value;
+    const email = document.querySelector('input[placeholder="Votre nom"]').value; 
+    const message = document.querySelector('textarea').value;
 
     if (!name || !email || !message) {
         alert("Veuillez remplir tous les champs");
@@ -223,8 +231,7 @@ function openProject(title, desc, tech, img) {
 }
 
 function closeProject() {
-    document.getElementById("project-details").style.display = "none";
-    document.getElementById("projets").style.display = "block";
+    document.getElementById("projectModal").style.display = "none";
 }
 
 </script>

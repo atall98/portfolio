@@ -1,4 +1,33 @@
 
+@media screen and (max-width: 768px) {
+    nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: green;
+        flex-direction: column;
+        width: 200px;
+        display: flex;
+        transform: translateX(100%); /* Menu caché à droite */
+        transition: transform 0.4s ease;
+        padding: 15px;
+        border-radius: 0 0 5px 5px;
+    }
+
+    nav.show {
+        transform: translateX(0); /* Menu visible */
+    }
+
+    nav a {
+        margin-bottom: 10px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+
 /* ================= RESET ================= */
 * {
     margin: 0;
