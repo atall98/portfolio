@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio | Aly Tall</title>
 
 <link rel="stylesheet" href="index.css">
@@ -188,17 +189,18 @@
 
 <script>
 
+
 function toggleMenu() {
     const nav = document.querySelector('nav');
     nav.classList.toggle('show');
 }
 
-
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', () => {
         document.querySelector('nav').classList.remove('show');
     });
-});
+})
+
 function sendMessage() {
     const name = document.querySelector('input[placeholder="Votre prénom"]').value;
     const email = document.querySelector('input[placeholder="Votre nom"]').value; 
@@ -221,11 +223,13 @@ function sendMessage() {
 
     return false;
 }
+
 function openProject(title, desc, tech, img) {
+    // Correction : Utiliser les IDs de la modal (et non de #project-details)
+    document.getElementById("modalImg").src = img;
     document.getElementById("modalTitle").innerText = title;
     document.getElementById("modalDesc").innerText = desc;
     document.getElementById("modalTech").innerText = tech;
-    document.getElementById("modalImg").src = img;
 
     document.getElementById("projectModal").style.display = "flex";
 }
@@ -233,8 +237,8 @@ function openProject(title, desc, tech, img) {
 function closeProject() {
     document.getElementById("projectModal").style.display = "none";
 }
-
 </script>
+
 
 <div class="modal" id="projectModal">
     <div class="modal-content">
